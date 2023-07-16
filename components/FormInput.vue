@@ -4,6 +4,7 @@ defineProps<{
   placeholder?: string
   label?: string
   icon?: string
+  required?: boolean
 }>()
 
 const value = defineModel()
@@ -21,6 +22,7 @@ const value = defineModel()
         v-model="value"
         :type="type"
         :placeholder="placeholder"
+        :required="required"
         class="form-control"
       >
 
@@ -32,6 +34,7 @@ const value = defineModel()
       v-model="value"
       :type="type"
       :placeholder="placeholder"
+      :required="required"
       class="form-control"
     >
   </div>
