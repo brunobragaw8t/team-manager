@@ -2,7 +2,7 @@
 defineProps<{
   tag: string
   label: string
-  loading: boolean
+  loading?: boolean
 }>()
 </script>
 
