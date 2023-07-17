@@ -4,6 +4,14 @@ definePageMeta({
 })
 
 const form = ref('signIn')
+
+const user = useSupabaseUser()
+
+watchEffect(() => {
+  if (user.value) {
+    navigateTo('/teams')
+  }
+})
 </script>
 
 <template>
@@ -36,7 +44,7 @@ const form = ref('signIn')
       </li>
     </ul>
 
-    <FormSignUp v-if="'signIn' === form" />
+    <FormSignIn v-if="'signIn' === form" />
 
     <FormSignUp v-if="'signUp' === form" />
   </div>
