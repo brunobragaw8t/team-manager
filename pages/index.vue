@@ -2,6 +2,8 @@
 definePageMeta({
   layout: 'auth'
 })
+
+const form = ref('signIn')
 </script>
 
 <template>
@@ -10,10 +12,32 @@ definePageMeta({
       Team Manager
     </h1>
 
-    <h3 class="mb-3">
-      Sign Up
-    </h3>
+    <ul class="nav nav-tabs nav-fill mb-3">
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          :class="{active: 'signIn' === form}"
+          href="#"
+          @click.prevent="form = 'signIn'"
+        >
+          Sign in
+        </a>
+      </li>
 
-    <FormSignUp />
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          :class="{active: 'signUp' === form}"
+          href="#"
+          @click.prevent="form = 'signUp'"
+        >
+          Sign up
+        </a>
+      </li>
+    </ul>
+
+    <FormSignUp v-if="'signIn' === form" />
+
+    <FormSignUp v-if="'signUp' === form" />
   </div>
 </template>
