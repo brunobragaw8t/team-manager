@@ -5,18 +5,20 @@ withDefaults(defineProps<{
   icon?: string
   iconPosition?: 'left' | 'right'
   size?: 'sm' | 'md' | 'lg'
+  variant?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark'
   loading?: boolean
 }>(), {
   icon: '',
   iconPosition: 'left',
-  size: 'md'
+  size: 'md',
+  variant: 'primary'
 })
 </script>
 
 <template>
   <component
     :is="tag"
-    :class="`btn btn-primary btn-${size}`"
+    :class="`btn btn-${variant} btn-${size}`"
     :disabled="loading"
   >
     <div v-if="loading" class="spinner-border" role="status">
