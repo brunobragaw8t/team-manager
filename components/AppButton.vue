@@ -2,6 +2,8 @@
 defineProps<{
   tag: string
   label: string
+  icon?: string
+  iconPosition?: 'left' | 'right'
   loading?: boolean
 }>()
 </script>
@@ -12,7 +14,11 @@ defineProps<{
       <span class="visually-hidden">Loading...</span>
     </div>
 
+    <i v-if="icon && 'left' === iconPosition" :class="`${icon} me-1`" />
+
     {{ label }}
+
+    <i v-if="icon && 'right' === iconPosition" :class="`${icon} ms-1`" />
   </component>
 </template>
 
