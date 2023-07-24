@@ -1,15 +1,24 @@
 <script setup lang="ts">
-defineProps<{
+withDefaults(defineProps<{
   tag: string
   label: string
   icon?: string
   iconPosition?: 'left' | 'right'
+  size?: 'sm' | 'md' | 'lg'
   loading?: boolean
-}>()
+}>(), {
+  icon: '',
+  iconPosition: 'left',
+  size: 'md'
+})
 </script>
 
 <template>
-  <component :is="tag" class="btn btn-primary" :disabled="loading">
+  <component
+    :is="tag"
+    :class="`btn btn-primary btn-${size}`"
+    :disabled="loading"
+  >
     <div v-if="loading" class="spinner-border" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
