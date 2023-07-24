@@ -1,11 +1,18 @@
 <script setup lang="ts">
-defineProps<{
+withDefaults(defineProps<{
   type: 'text' | 'password' | 'email'
   placeholder?: string
   label?: string
   icon?: string
   required?: boolean
-}>()
+  focus?: boolean
+}>(), {
+  placeholder: '',
+  label: '',
+  icon: '',
+  required: false,
+  focus: false
+})
 
 const value = defineModel()
 </script>
@@ -20,6 +27,7 @@ const value = defineModel()
       <input
         :id="$.uid.toString()"
         v-model="value"
+        v-focus="focus"
         :type="type"
         :placeholder="placeholder"
         :required="required"
@@ -32,6 +40,7 @@ const value = defineModel()
     <input
       v-else
       v-model="value"
+      v-focus="focus"
       :type="type"
       :placeholder="placeholder"
       :required="required"

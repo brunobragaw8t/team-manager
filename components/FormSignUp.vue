@@ -63,6 +63,7 @@ async function signUp () {
         label="Name"
         icon="far fa-user"
         :required="true"
+        :focus="true"
       />
     </div>
 

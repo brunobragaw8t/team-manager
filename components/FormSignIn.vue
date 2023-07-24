@@ -51,6 +51,7 @@ async function signIn () {
         label="Email"
         icon="far fa-envelope"
         :required="true"
+        :focus="true"
       />
     </div>
 
